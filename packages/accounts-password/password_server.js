@@ -554,7 +554,7 @@ Accounts.sendResetPasswordEmail = function (userId, email) {
   var resetPasswordUrl = Accounts.urls.resetPassword(token);
 
   var options = {
-    to: email,
+    to: '"' + user.profile.firstName + ' ' + user.profile.lastName + '" <' + email + '>',
     from: Accounts.emailTemplates.resetPassword.from
       ? Accounts.emailTemplates.resetPassword.from(user)
       : Accounts.emailTemplates.from,
@@ -623,7 +623,7 @@ Accounts.sendEnrollmentEmail = function (userId, email) {
   var enrollAccountUrl = Accounts.urls.enrollAccount(token);
 
   var options = {
-    to: email,
+    to: '"' + user.profile.firstName + ' ' + user.profile.lastName + '" <' + email + '>',
     from: Accounts.emailTemplates.enrollAccount.from
       ? Accounts.emailTemplates.enrollAccount.from(user)
       : Accounts.emailTemplates.from,
@@ -779,7 +779,7 @@ Accounts.sendVerificationEmail = function (userId, address) {
   var verifyEmailUrl = Accounts.urls.verifyEmail(tokenRecord.token);
 
   var options = {
-    to: address,
+    to: '"' + user.profile.firstName + ' ' + user.profile.lastName + '" <' + email + '>',
     from: Accounts.emailTemplates.verifyEmail.from
       ? Accounts.emailTemplates.verifyEmail.from(user)
       : Accounts.emailTemplates.from,
